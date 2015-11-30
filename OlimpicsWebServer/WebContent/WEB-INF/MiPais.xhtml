@@ -1,0 +1,100 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	
+
+
+
+</h:head>
+<h:body class="fondo">
+	<h:outputStylesheet library="css" name="style1.css" />
+
+	<p:layout fullPage="true">
+
+		<p:layoutUnit position="north" styleClass="navbar">
+			<ui:include src="Navbar.xhtml" />
+		</p:layoutUnit>
+		<p:layoutUnit position="west" rendered="#{not empty usuarioMB.nick}"
+			styleClass="menu">
+			
+		</p:layoutUnit>
+
+		
+
+		<p:layoutUnit position="center" styleClass="Content">			
+
+
+			<h:panelGroup layout="block"
+				style="width:100%;text-align:center;margin-bottom:20px;">
+				<p:outputLabel value="#{paisMB.nombrePais}"
+					style="font-family:Aldrich;color:#A0B8A2;font-size:60px;text-shadow:3px 2px 3px #706868;"></p:outputLabel>
+			</h:panelGroup>
+
+	<h:panelGroup layout="block" id="map-canvas" style="border-radius: 0px 0px 0px 0px; -moz-border-radius: 0px 0px 0px 0px; -webkit-border-radius: 0px 0px 0px 0px; border: 7.5px double #000000;"></h:panelGroup>
+		
+			<h:panelGroup layout="block" styleClass="datagrid-container">
+				<h:panelGroup layout="block" styleClass="datagrid">
+					
+					<table>
+						<thead>
+							<tr>
+								<th style="color: #333;font-size:1.27em;">Datos del Equipo</th>
+							</tr>
+						</thead>
+				
+						<tbody>
+							<tr>
+								<td class="row-equipo"><p:outputLabel value="País : "
+										style="font-family: Arbutus;color: #F2F2F2;font-size: 19px;font-weight: bold;text-shadow: 1px 1px 1px #A1A1A1;">
+
+										<!-- Artifika -->
+									</p:outputLabel> <p:outputLabel value="#{paisMB.nombrePais}"
+										style="font-family:Architects Daughter;font-size: 18px"></p:outputLabel>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</h:panelGroup>
+			</h:panelGroup>
+			
+			<p:growl id="growl" showDetail="false" />
+
+
+
+			<h:form id="form">
+				<p:growl id="msgs" showDetail="true" />
+				<p:dataTable id="checkboxDT" var="wrapperDeportista"
+					value="#{paisMB.misDeportistas}"
+					selection="#{paisMB.selectedDeportistas}"
+					rowKey="#{wrapperDeportista.nombreDep}"
+					style="margin-bottom:0;text-align:center;">
+					<f:facet name="header" value="Plantilla">
+				Plantilla
+		        </f:facet>
+					<!--  <p:column selectionMode="multiple" style="width:16px;text-align:center"/> -->
+					<p:column headerText="Nombre" sortBy="#{wrapperDeportista.nombreDep}">
+						<h:outputText value="#{wrapperDeportista.nombreDep}" />
+					</p:column>
+					<p:column headerText="Edad">
+						<h:outputText value="#{wrapperDeportista.edad}" />
+					</p:column>
+					<p:column headerText="altura" sortBy="#{wrapperDeportista.altura}">
+						<h:outputText value="#{wrapperDeportista.altura}" />
+					</p:column>
+					<p:column headerText="peso" sortBy="#{wrapperDeportista.peso}">
+						<h:outputText value="#{wrapperDeportista.peso}" />
+					</p:column>
+					<p:column headerText="cuentaT" sortBy="#{wrapperDeportista.cuentaT}">
+						<h:outputText value="#{wrapperDeportista.cuentaT}" />
+					</p:column>					
+
+				</p:dataTable>
+			</h:form>
+		</p:layoutUnit>
+	</p:layout>
+
+</h:body>
+</html>

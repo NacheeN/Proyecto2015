@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+ 
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+ 
+            
+        </f:facet>
+ 
+        <f:facet name="middle">
+            <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+            
+            <h:outputStylesheet name="css/dashboard.css" />
+            
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
+            
+            <h:outputScript name="bootstrap/js/bootstrap.js" />
+        </f:facet>
+        
+        <f:facet name="last">
+ 
+        </f:facet>
+ 
+    </h:head>
+
+<h:body style = "background-color: #F2F2F2">
+
+<div style = "background-image:url(resources/images/fondo.jpg); margin-left: 10%; margin-right:10%; padding-top:2px; margin-top:120px;padding-bottom:10%">
+	<ui:include src="Nav.xhtml" />
+	<ui:include src="Navbar.xhtml" />
+	
+
+<h:form id="AltaPais">
+
+	<div style = "background-color : #D8D8D8; padding-left:10px; margin-left:30%; margin-right:30%; margin-top:5%">
+	                 
+	        <fieldset>
+			<br />
+			<h:outputLabel value="Nombre del Pais" for="nombrePais" style= "margin-left: 60px"/>
+			<h:inputText style= "margin-left: 10px" class="form-control" id="nombre" value="#{paisMB.nombrePais}" required="true" requiredMessage="Campo obligatorio" maxlength="200" />
+			<h:message for="nombrePais"/> 
+			<br />	
+			</fieldset>	
+			<h:commandButton class="btn btn-default navbar-btn" type="submit" value="Guardar" action="#{paisMB.altaPais}" update="growl" style= "margin-left: 40%"/>
+			</div>	
+	</h:form>
+</div>
+</h:body>
+
+</html>
+	
+	
+	
+	

@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+   
+
+</h:head>
+<h:body class="fondo">
+		<h:outputStylesheet library="css" name="style1.css" />
+
+<p:layout fullPage="true">
+ 
+    <p:layoutUnit position="north" styleClass="navbar">
+			 <ui:include src="Navbar.xhtml" />     
+   </p:layoutUnit>
+  
+    
+    <p:layoutUnit position="center" styleClass="Content">
+    
+	    
+   	    <p:growl id="growl" showDetail="false" />
+   		
+		<h:form id="form">
+	
+		    
+		    <p:dataTable id="Noticias" var="noticias" value="#{noticiaMB.noticias}"  style="margin-bottom:0;" resizableColumns="true">
+		        <f:facet name="header">
+		          NOTICIAS
+		        </f:facet>
+		      
+		        <p:column headerText="TITULO" >
+		            <h:outputText value="#{noticia.titulo}" />
+		        </p:column>
+		        <p:column headerText="DESCRIPCION">
+		            <h:outputText value="#{noticia.desc}" />
+		        </p:column>
+		         <p:column headerText="TAG" >
+		            <h:outputText value="#{noticia.tag}" />
+		        </p:column>
+		        		       
+		    </p:dataTable>
+
+		</h:form>
+
+    </p:layoutUnit>
+ 
+</p:layout>
+
+
+</h:body>
+</html>
+
+
